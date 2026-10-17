@@ -3,7 +3,7 @@
  * Handles authentication, data CRUD, push subscriptions, and Slack integration.
  */
 
-const API_BASE = '';
+const API_BASE = window.location.hostname === 'localhost' ? '' : 'https://personal-dashboard-api.onrender.com';
 const TOKEN_KEY = 'dashboard_auth_token';
 
 // ===== Auth =====
