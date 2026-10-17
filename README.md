@@ -1,6 +1,8 @@
 # Personal Work Dashboard
 
 > A beautiful pink-themed personal work command center for managing tasks, notes, meetings, team cascades, and Slack alerts — all in one application with reliable reminders and push notifications.
+>
+> **Note:** Slack integration is fully implemented but optional. The dashboard works perfectly without Slack configured — just skip the Slack setup steps. The Slack app, OAuth flow, webhook capture, and alert-to-task/cascade conversion are available if you want them, but they don't need to be set up for the core dashboard to function.
 
 ## Features
 
