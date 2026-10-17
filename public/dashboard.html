@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Work Dashboard</title>
+  <meta name="description" content="My personal work command center for tasks, notes, meetings, and Slack alerts">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#e75480">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <!-- ===== APP SHELL ===== -->
+  <div id="app" class="app-container">
+    <!-- ===== MOBILE OVERLAY ===== -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <h1>Pink Dashboard</h1>
+        <p>Your work command center</p>
+      </div>
+      <nav id="sidebar-nav">
+        <a href="#/dashboard" data-page="dashboard" class="active">
+          <span class="icon">📊</span> Dashboard
+        </a>
+        <a href="#/tasks" data-page="tasks">
+          <span class="icon">✓</span> My Tasks
+        </a>
+        <a href="#/archived" data-page="archived">
+          <span class="icon">📦</span> Completed Tasks
+        </a>
+        <a href="#/notes" data-page="notes">
+          <span class="icon">📝</span> Important Notes
+        </a>
+        <a href="#/meetings" data-page="meetings">
+          <span class="icon">👥</span> Meeting Notes
+        </a>
+        <a href="#/cascades" data-page="cascades">
+          <span class="icon">📢</span> Team Cascades
+        </a>
+        <a href="#/slack" data-page="slack">
+          <span class="icon">💬</span> Slack Alerts
+        </a>
+        <a href="#/notifications" data-page="notifications">
+          <span class="icon">🔔</span> Notifications
+        </a>
+        <a href="#/settings" data-page="settings">
+          <span class="icon">⚙</span> Settings
+        </a>
+        <a href="#/login" data-page="login" id="logout-link" style="display:none;">
+          <span class="icon">🚪</span> Logout
+        </a>
+      </nav>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-wrapper" style="flex: 1; display: flex; flex-direction: column;">
+      <!-- ===== TOP BAR ===== -->
+      <header class="top-bar">
+        <button id="menu-toggle" class="mobile-menu-btn">☰</button>
+        <h1 id="page-title">Dashboard</h1>
+        <div class="actions">
+          <button id="search-btn" class="btn btn-outline btn-sm" style="display:none;">
+            🔍
+          </button>
+          <div id="user-info" style="display:none; font-size:13px; color:#6b7280;">
+            Welcome, <span id="user-name"></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== PAGE CONTENT ===== -->
+      <main class="main-content" id="main-content">
+        <!-- Pages are rendered here by the router -->
+      </main>
+    </div>
+  </div>
+
+  <!-- ===== FULL-WINDOW ALERT OVERLAY ===== -->
+  <div id="alert-overlay" class="alert-overlay" style="display:none;">
+    <div class="alert-content" role="alert" aria-live="assertive">
+      <h2 id="alert-title"></h2>
+      <span id="alert-priority" class="alert-priority"></span>
+      <div id="alert-body" class="alert-body"></div>
+      <div id="alert-meta" class="alert-meta"></div>
+      <div class="alert-actions" id="alert-actions"></div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div id="toast" class="toast"></div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="/assets/icons.js"></script>
+  <script src="/assets/api.js"></script>
+  <script src="/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "personal-work-dashboard",
+  "version": "1.0.0",
+  "description": "Personal work command center - pink-themed dashboard for tasks, notes, meetings, cascades, and Slack alerts",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'No build step required - this is a Node.js application'",
+    "test": "node test/test-runner.js",
+    "lint": "echo 'No linter configured'"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.4.3",
+    "helmet": "^8.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
