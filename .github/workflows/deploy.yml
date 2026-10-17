@@ -21,35 +21,15 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
+    - name: Start server for testing
+      run: |
+        DB_PATH=./data/test.db PORT=3000 node server.js &
+        sleep 5
+
     - name: Run tests
       run: node test/integration.js
       env:
-        TEST_PORT: 9999
+        TEST_PORT: 3000
 
-    - name: Start server (test)
-      run: |
-        PORT=9998 TEST_PORT=9998 node -e "
-        require('dotenv').config();
-        const app = require('./server.js');
-        setTimeout(() => process.exit(0), 2000);
-        "
-
-    - name: Verify build
-      run: |
-        node -e "console.log('Build verification passed')"
-
-    - name: Deploy to hosting (placeholder)
-      run: |
-        echo "Deployment steps:"
-        echo "1. Copy files to hosting server"
-        echo "2. Set environment variables in hosting dashboard"
-        echo "3. Configure custom domain DNS"
-        echo "See README for detailed deployment instructions"
-
-    - name: Run production server
-      run: |
-        echo "Starting production server..."
-        PORT=\${{ secrets.PORT || '3000' }} node server.js &
-        sleep 3
-        curl -s http://localhost:3000/ || echo "Server health check"
-        kill %1 2>/dev/null || true
+    - name: Stop server
+      run: kill %1 2>/dev/null || true
